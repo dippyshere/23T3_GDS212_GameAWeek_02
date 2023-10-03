@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 999f, hitLayers))
             {
                 // spawn a sphere at the hit point for debugging
-                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                sphere.transform.position = hit.point;
+                //GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                //sphere.transform.position = hit.point;
                 Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
                 targetPosition = hit.point;
                 targetRotation = Quaternion.LookRotation(hit.point - transform.position);
@@ -38,5 +38,21 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, acceleration, maxSpeed);
         boatReferenceRotation.transform.rotation = Quaternion.Lerp(boatReferenceRotation.transform.rotation, targetRotation, Time.deltaTime * 2f);
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, 999f, hitLayers))
+            {
+                Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
+                targetPosition = hit.point;
+                targetRotation = Quaternion.LookRotation(hit.point - transform.position);
+            }
+        }
     }
 }
