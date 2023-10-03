@@ -13,10 +13,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject boatReferenceRotation;
+    [SerializeField] private GameObject markerObject;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private Vector3 currentVelocity = Vector3.zero;
+    public float markerOpacity = 0f;
 
     private void Update()
     {
@@ -38,10 +40,18 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, acceleration, maxSpeed);
         boatReferenceRotation.transform.rotation = Quaternion.Lerp(boatReferenceRotation.transform.rotation, targetRotation, Time.deltaTime * 2f);
+        
+        markerObject.transform.position = Vector3.Lerp(markerObject.transform.position, targetPosition, Time.deltaTime * 6f);
+        markerOpacity = Mathf.Clamp01(Mathf.Lerp(markerOpacity, (1f - Mathf.Clamp(Vector3.Distance(transform.position, targetPosition), 5f, 10f) / 5f) * -1, Time.deltaTime * 6f));
+        foreach (MeshRenderer meshRenderer in markerObject.GetComponentsInChildren<MeshRenderer>())
+        {
+            meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, markerOpacity);
+        }
     }
 
     private void FixedUpdate()
     {
+        // if the player is holding down the mouse button, raycast to the mouse position again
         if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
