@@ -841,8 +841,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: 23T3_GDS212_GameAWeek_02
-  metroPackageVersion: 
+  metroPackageName: 23T3GDS212GameAWeek02
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -850,7 +850,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: 23T3_GDS212_GameAWeek_02
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: 23T3_GDS212_GameAWeek_02
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
