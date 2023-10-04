@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] public float maxSpeed = 5f;
     [SerializeField] private float acceleration = 1f;
 
     [Header("Settings")]
@@ -14,14 +14,18 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject boatReferenceRotation;
     [SerializeField] private GameObject markerObject;
+    [SerializeField] private AudioSource waterSpraySource;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private Vector3 currentVelocity = Vector3.zero;
-    private float currentSpeed = 0f;
+    public float currentSpeed = 0f;
     private float previousSpeed = 0f;
     private float currentAcceleration = 0f;
-    private float lerpedAcceleration = 0f;
+    public float lerpedAcceleration = 0f;
+    private float previousRotationY = 0f;
+    private float angularAccelerationY = 0f;
+    public float lerpedAngularAcceleration = 0f;
     private float markerOpacity = 0f;
 
     private void Update()
@@ -45,6 +49,10 @@ public class PlayerController : MonoBehaviour
 
         // movement
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, acceleration, maxSpeed);
+        if (Vector3.Distance(transform.position, targetPosition) >= 0.3f)
+        {
+            targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+        }
         boatReferenceRotation.transform.rotation = Quaternion.Lerp(boatReferenceRotation.transform.rotation, targetRotation, Time.deltaTime * 2f);
         
         // marker location / opacity
@@ -57,12 +65,22 @@ public class PlayerController : MonoBehaviour
         
         // boat angle with speed
         currentSpeed = currentVelocity.magnitude;
-        // compute rate of change of speed
         currentAcceleration = (currentSpeed - previousSpeed) / Time.deltaTime;
         previousSpeed = currentSpeed;
-        // lerp the acceleration to smooth it out
         lerpedAcceleration = Mathf.Lerp(lerpedAcceleration, currentAcceleration, Time.deltaTime * 6f);
-        //boatReferenceRotation.transform.localRotation = Quaternion.Euler(lerpedAcceleration * -1f, boatReferenceRotation.transform.localRotation.y, boatReferenceRotation.transform.localRotation.z);
+        
+        currentSpeed = currentVelocity.magnitude;
+        currentAcceleration = (currentSpeed - previousSpeed) / Time.deltaTime;
+        previousSpeed = currentSpeed;
+        float currentRotationY = boatReferenceRotation.transform.rotation.eulerAngles.y;
+        float rotationChangeY = currentRotationY - previousRotationY;
+        rotationChangeY = Mathf.DeltaAngle(previousRotationY, currentRotationY);
+        angularAccelerationY = rotationChangeY / Time.deltaTime;
+        previousRotationY = currentRotationY;
+        lerpedAngularAcceleration = Mathf.Lerp(lerpedAngularAcceleration, angularAccelerationY, Time.deltaTime * 6f);
+
+        waterSpraySource.volume = Mathf.Clamp01(currentSpeed / 22f);
+        waterSpraySource.pitch = Mathf.Clamp(0.6f + (currentSpeed / 5f), 0.6f, 1f);
     }
 
     private void FixedUpdate()

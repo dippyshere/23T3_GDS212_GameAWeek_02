@@ -700,51 +700,65 @@ MonoBehaviour:
   _depthTex: {fileID: 0}
   bakedDepthTex: {fileID: 0}
   _waves:
-  - amplitude: 0.27251664
+  - amplitude: 0.32702
     direction: -140.06389
     wavelength: 5.0174966
     origin:
       x: 0
       y: 0
     onmiDir: 0
-  - amplitude: 0.2811989
+  - amplitude: 0.32077506
     direction: -131.11287
-    wavelength: 3.5701404
+    wavelength: 3.3938372
     origin:
       x: 0
       y: 0
     onmiDir: 0
-  - amplitude: 0.39600885
+  - amplitude: 0.43680978
     direction: -178.0552
-    wavelength: 4.9202857
+    wavelength: 4.522687
     origin:
       x: 0
       y: 0
     onmiDir: 0
-  - amplitude: 0.46088204
+  - amplitude: 0.49633452
     direction: -201.61835
-    wavelength: 5.7828555
+    wavelength: 5.189742
     origin:
       x: 0
       y: 0
     onmiDir: 0
-  - amplitude: 0.60371137
+  - amplitude: 0.63859254
     direction: -242.2951
-    wavelength: 8.829012
+    wavelength: 7.782611
     origin:
       x: 0
       y: 0
     onmiDir: 0
-  - amplitude: 0.5511038
+  - amplitude: 0.5748769
     direction: -264.7704
-    wavelength: 6.0290966
+    wavelength: 5.2409797
     origin:
       x: 0
       y: 0
     onmiDir: 0
-  - amplitude: 0.6049633
+  - amplitude: 0.6240675
     direction: -130.62204
-    wavelength: 9.676395
+    wavelength: 8.318305
+    origin:
+      x: 0
+      y: 0
+    onmiDir: 0
+  - amplitude: 0.7866642
+    direction: -240.8929
+    wavelength: 10.340911
+    origin:
+      x: 0
+      y: 0
+    onmiDir: 0
+  - amplitude: 0.67573893
+    direction: -129.99573
+    wavelength: 11.681098
     origin:
       x: 0
       y: 0
