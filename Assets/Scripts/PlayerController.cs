@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject markerObject;
     [SerializeField] private AudioSource waterSpraySource;
     [SerializeField] private GameObject hitTester;
+    [SerializeField] private GameObject scoreFeedback;
+    [SerializeField] private TextMeshProUGUI fishText;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -28,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private float angularAccelerationY = 0f;
     public float lerpedAngularAcceleration = 0f;
     private float markerOpacity = 0f;
+
+    public int fishCollected = 0;
 
     private void Update()
     {
@@ -106,4 +112,32 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Fish"))
+        {
+            Destroy(other.gameObject);
+            fishCollected += other.GetComponent<FishManager>().fishCount;
+            GameObject feedback = Instantiate(scoreFeedback, gameObject.transform);
+            feedback.GetComponent<ScoreFeedbackManager>().scoreValue = other.GetComponent<FishManager>().fishCount;
+            feedback.GetComponent<ScoreFeedbackManager>().UpdateScore();
+            UpdateFishText();
+        }
+    }
+
+    public void StopBoat(Collision collision, GameObject marker)
+    {
+        // bad
+        Vector3 playerToCollider = collision.transform.position - marker.transform.position;
+        playerToCollider.y = 0f;
+        playerToCollider.Normalize();
+        targetPosition = marker.transform.position - playerToCollider * 5f;
+        targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+    }
+
+    public void UpdateFishText()
+    {
+        fishText.text = fishCollected.ToString("N0", CultureInfo.InvariantCulture);
+    }    
 }

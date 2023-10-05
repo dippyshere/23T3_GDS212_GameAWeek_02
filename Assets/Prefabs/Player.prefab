@@ -589,6 +589,8 @@ GameObject:
   - component: {fileID: 8214195621398864091}
   - component: {fileID: 2843488065563895253}
   - component: {fileID: 1169926783734183497}
+  - component: {fileID: 8670042544355658281}
+  - component: {fileID: 6403189224756337578}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -638,9 +640,13 @@ MonoBehaviour:
   markerObject: {fileID: 0}
   waterSpraySource: {fileID: 1645948883447877212}
   hitTester: {fileID: 0}
+  scoreFeedback: {fileID: 7560494966999846534, guid: 467c52b3e8732c445bd497a996e51d10,
+    type: 3}
+  fishText: {fileID: 0}
   currentSpeed: 0
   lerpedAcceleration: 0
   lerpedAngularAcceleration: 0
+  fishCollected: 0
 --- !u!114 &2843488065563895253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +680,54 @@ MonoBehaviour:
   - {fileID: 7437811407370939635}
   - {fileID: 7311228971080834469}
   playerController: {fileID: 8214195621398864091}
+--- !u!65 &8670042544355658281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319756221335069682}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 6}
+  m_Center: {x: 0, y: 1.4, z: 0.5}
+--- !u!54 &6403189224756337578
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319756221335069682}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 118
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1 &8515650679802391530
 GameObject:
   m_ObjectHideFlags: 0
