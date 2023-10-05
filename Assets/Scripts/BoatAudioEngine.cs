@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class BoatAudioEngine : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private float maxVolume = 1f;
-    [SerializeField] private float minVolume = 0.1f;
-    [SerializeField] private float minPitch = 0.7f;
-    [SerializeField] private float maxPitch = 1.3f;
-
     [Header("References")]
     [SerializeField] private AudioSource[] engineSources;
     [SerializeField] private PlayerController playerController;
@@ -19,11 +13,18 @@ public class BoatAudioEngine : MonoBehaviour
     {
         float currentSpeed = playerController.currentSpeed;
 
-        engineSources[0].pitch = Mathf.Lerp(minPitch, maxPitch, Mathf.InverseLerp(0f, 5f, currentSpeed));
-        engineSources[0].volume = Mathf.Lerp(minVolume, maxVolume, Mathf.InverseLerp(7f, 1f, currentSpeed));
-        engineSources[1].pitch = Mathf.Lerp(minPitch, maxPitch + 0.15f, Mathf.InverseLerp(1f, 15f, currentSpeed));
-        engineSources[1].volume = Mathf.Lerp(minVolume, maxVolume, Mathf.InverseLerp(0f, 7f, currentSpeed));
-        engineSources[2].pitch = Mathf.Lerp(minPitch + 0.15f, maxPitch - 0.15f, Mathf.InverseLerp(10f, 20f, currentSpeed));
-        engineSources[2].volume = Mathf.Lerp(minVolume, maxVolume, Mathf.InverseLerp(9f, 16f, currentSpeed));
+        engineSources[0].pitch = Mathf.Lerp(0.87f, 1.3f, Mathf.InverseLerp(0f, 6f, currentSpeed));
+        engineSources[0].volume = Mathf.Lerp(0.89f, 0.1f, Mathf.InverseLerp(0.7f, 7f, currentSpeed)) * 0.75f;
+        engineSources[1].pitch = Mathf.Lerp(0.65f, 1.56f, Mathf.InverseLerp(0f, 18f, currentSpeed));
+        if (currentSpeed < 11)
+        {
+            engineSources[1].volume = Mathf.Lerp(0.1f, 0.973f, Mathf.InverseLerp(0f, 11f, currentSpeed)) * 0.8f;
+        }
+        else
+        {
+            engineSources[1].volume = Mathf.Lerp(0.973f, 0.1f, Mathf.InverseLerp(11f, 18f, currentSpeed)) * 0.8f;
+        }
+        engineSources[2].pitch = Mathf.Lerp(0.823f, 1.2734f, Mathf.InverseLerp(10f, 30f, currentSpeed)) * 0.9f;
+        engineSources[2].volume = Mathf.Lerp(0.1f, 1f, Mathf.InverseLerp(11f, 16f, currentSpeed));
     }
 }

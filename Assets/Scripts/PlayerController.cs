@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject boatReferenceRotation;
     [SerializeField] private GameObject markerObject;
     [SerializeField] private AudioSource waterSpraySource;
+    [SerializeField] private GameObject hitTester;
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
@@ -33,7 +34,10 @@ public class PlayerController : MonoBehaviour
         // movement input
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 hitTesterScreenPosition = Camera.main.WorldToScreenPoint(hitTester.transform.position + hitTester.transform.forward * 470f);
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.y = Mathf.Clamp(mousePosition.y, 0, hitTesterScreenPosition.y);
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 999f, hitLayers))
@@ -88,10 +92,13 @@ public class PlayerController : MonoBehaviour
         // if the player is holding down the mouse button, raycast to the mouse position again
         if (Input.GetMouseButton(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 hitTesterScreenPosition = Camera.main.WorldToScreenPoint(hitTester.transform.position + hitTester.transform.forward * 470f);
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.y = Mathf.Clamp(mousePosition.y, 0, hitTesterScreenPosition.y);
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 999f, hitLayers))
+            if (Physics.Raycast(ray, out hit, 3000f, hitLayers))
             {
                 Debug.DrawLine(ray.origin, hit.point, Color.red, 1f);
                 targetPosition = hit.point;
