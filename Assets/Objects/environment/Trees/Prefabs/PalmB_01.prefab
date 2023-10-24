@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 121
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4605543733983386
 Transform:
@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 121
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4764076395790578
 Transform:
@@ -151,8 +151,8 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 0
-  m_ReceiveGI: 2
+  m_ScaleInLightmap: 0.15
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -181,7 +181,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 120
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4896864259956814
 Transform:
