@@ -1,7 +1,7 @@
-using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class CameraZoom : MonoBehaviour
 {
@@ -11,8 +11,7 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float zoomSpeed = 10f;
 
     [Header("References")]
-    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
-    private CinemachineFramingTransposer cinemachineFramingTransposer;
+    [SerializeField] private CinemachinePositionComposer cinemachinePositionComposer;
 
     private float currentZoom = 0f;
     private float targetZoom = 0f;
@@ -20,8 +19,7 @@ public class CameraZoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cinemachineFramingTransposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-        currentZoom = targetZoom = cinemachineFramingTransposer.m_CameraDistance;
+        currentZoom = targetZoom = cinemachinePositionComposer.CameraDistance;
     }
 
     // Update is called once per frame
@@ -33,6 +31,6 @@ public class CameraZoom : MonoBehaviour
         targetZoom -= scroll * zoomSpeed;
         targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
         currentZoom = Mathf.Lerp(currentZoom, targetZoom, Time.deltaTime * 10f);
-        cinemachineFramingTransposer.m_CameraDistance = currentZoom;
+        cinemachinePositionComposer.CameraDistance = currentZoom;
     }
 }

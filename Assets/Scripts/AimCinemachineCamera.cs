@@ -1,22 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 
 public class AimCinemachineCamera : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
-    private CinemachinePOV cinemachinePOV;
-    private float multiplier = 1f;
+    [SerializeField] private CinemachineInputAxisController cinemachineInputAxisController;
 
     // Start is called before the first frame update
     void Start()
     {
-        cinemachinePOV = cinemachineVirtualCamera.GetCinemachineComponent<CinemachinePOV>();
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            multiplier = 0.5f;
+            cinemachineInputAxisController.Controllers[0].Input.LegacyGain = 100f;
+            cinemachineInputAxisController.Controllers[1].Input.LegacyGain = -100f;
         }
     }
 
@@ -25,14 +23,14 @@ public class AimCinemachineCamera : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            cinemachinePOV.m_HorizontalAxis.m_InputAxisValue = Input.GetAxis("Mouse X") * multiplier;
-            cinemachinePOV.m_VerticalAxis.m_InputAxisValue = Input.GetAxis("Mouse Y") * multiplier;
+            cinemachineInputAxisController.Controllers[0].Input.LegacyInput = "Mouse X";
+            cinemachineInputAxisController.Controllers[1].Input.LegacyInput = "Mouse Y";
         }
 
         else
         {
-            cinemachinePOV.m_HorizontalAxis.m_InputAxisValue = 0f;
-            cinemachinePOV.m_VerticalAxis.m_InputAxisValue = 0f;
+            cinemachineInputAxisController.Controllers[0].Input.LegacyInput = "";
+            cinemachineInputAxisController.Controllers[1].Input.LegacyInput = "";
         }
     }
 }

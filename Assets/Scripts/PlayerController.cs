@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject boatReferenceRotation;
+    [SerializeField] private GameObject boatCameraRotation;
     [SerializeField] private GameObject markerObject;
     [SerializeField] private AudioSource waterSpraySource;
     [SerializeField] private GameObject hitTester;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
             targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
         }
         boatReferenceRotation.transform.rotation = Quaternion.Lerp(boatReferenceRotation.transform.rotation, targetRotation, Time.deltaTime * 2f);
+        boatCameraRotation.transform.rotation = Quaternion.Lerp(boatCameraRotation.transform.rotation, targetRotation, Time.deltaTime * 0.5f);
         
         // marker location / opacity
         markerObject.transform.position = Vector3.Lerp(markerObject.transform.position, targetPosition, Time.deltaTime * 6f);

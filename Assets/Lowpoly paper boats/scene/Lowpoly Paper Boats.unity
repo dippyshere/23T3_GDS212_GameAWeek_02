@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,7 +44,6 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
     m_MixedBakeMode: 1
     m_BakeBackend: 0
@@ -97,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 89e5bd88086bddc479133f0fc3b6f0f3,
     type: 2}
 --- !u!196 &4
@@ -177,7 +173,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 738eaeebefab1b94387fa4b28fd8aea6, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0307df93a7a763f4aa664fc459c3041d, type: 2}
     m_RemovedComponents: []
@@ -187,7 +183,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 738eaeebefab1b94387fa4b28fd8aea6, type: 3}
 --- !u!4 &827861613 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 738eaeebefab1b94387fa4b28fd8aea6,
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 738eaeebefab1b94387fa4b28fd8aea6,
     type: 3}
   m_PrefabInstance: {fileID: 827861612}
   m_PrefabAsset: {fileID: 0}
@@ -244,7 +240,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 41955c46440177d4e98f216d553ffd68, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0307df93a7a763f4aa664fc459c3041d, type: 2}
     m_RemovedComponents: []
@@ -254,7 +250,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 41955c46440177d4e98f216d553ffd68, type: 3}
 --- !u!4 &844274379 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 41955c46440177d4e98f216d553ffd68,
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 41955c46440177d4e98f216d553ffd68,
     type: 3}
   m_PrefabInstance: {fileID: 844274378}
   m_PrefabAsset: {fileID: 0}
@@ -311,7 +307,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4ec936a9b1599694cbdea7af2df0115d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0307df93a7a763f4aa664fc459c3041d, type: 2}
     m_RemovedComponents: []
@@ -321,7 +317,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4ec936a9b1599694cbdea7af2df0115d, type: 3}
 --- !u!4 &844846182 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 4ec936a9b1599694cbdea7af2df0115d,
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4ec936a9b1599694cbdea7af2df0115d,
     type: 3}
   m_PrefabInstance: {fileID: 844846181}
   m_PrefabAsset: {fileID: 0}
@@ -415,7 +411,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 2425a87628df6b14db6676e5fc92466d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0307df93a7a763f4aa664fc459c3041d, type: 2}
     m_RemovedComponents: []
@@ -425,7 +421,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 2425a87628df6b14db6676e5fc92466d, type: 3}
 --- !u!4 &1497933149 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 2425a87628df6b14db6676e5fc92466d,
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 2425a87628df6b14db6676e5fc92466d,
     type: 3}
   m_PrefabInstance: {fileID: 1497933148}
   m_PrefabAsset: {fileID: 0}
@@ -482,7 +478,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4020b43f8accddb4bb9bd1f3b3fddcf7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0307df93a7a763f4aa664fc459c3041d, type: 2}
     m_RemovedComponents: []
@@ -492,7 +488,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4020b43f8accddb4bb9bd1f3b3fddcf7, type: 3}
 --- !u!4 &1630565044 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 4020b43f8accddb4bb9bd1f3b3fddcf7,
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4020b43f8accddb4bb9bd1f3b3fddcf7,
     type: 3}
   m_PrefabInstance: {fileID: 1630565043}
   m_PrefabAsset: {fileID: 0}
@@ -623,9 +619,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071480864}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -675,8 +670,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &2071480866
 Transform:
   m_ObjectHideFlags: 0
@@ -768,7 +767,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 1c908fe580708ea49b1751ac1cae7c19, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0307df93a7a763f4aa664fc459c3041d, type: 2}
     m_RemovedComponents: []
@@ -778,7 +777,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1c908fe580708ea49b1751ac1cae7c19, type: 3}
 --- !u!4 &2146100386 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 1c908fe580708ea49b1751ac1cae7c19,
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 1c908fe580708ea49b1751ac1cae7c19,
     type: 3}
   m_PrefabInstance: {fileID: 2146100385}
   m_PrefabAsset: {fileID: 0}
