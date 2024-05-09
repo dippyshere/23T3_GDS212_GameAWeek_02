@@ -9,11 +9,14 @@ public class CopyBuoyancy : MonoBehaviour
     [SerializeField] private GameObject objectToCopyFrom;
     [SerializeField] private GameObject objectToCopyTo;
     [SerializeField] private GameObject referencePosition;
+    private Vector3 lerpedPosition;
 
     // Update is called once per frame
     void Update()
     {
-        objectToCopyTo.transform.position = objectToCopyFrom.transform.position;
+        // lerp the position when copying the position
+        lerpedPosition = Vector3.Lerp(lerpedPosition, objectToCopyFrom.transform.position, Time.deltaTime * 6f);
+        objectToCopyTo.transform.position = lerpedPosition;
         objectToCopyTo.transform.rotation = objectToCopyFrom.transform.rotation;
         objectToCopyTo.transform.rotation *= referencePosition.transform.rotation;
 

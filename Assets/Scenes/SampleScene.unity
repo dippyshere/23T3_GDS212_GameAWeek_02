@@ -521,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.589112, z: -23}
+  m_LocalPosition: {x: 0, y: 5.064358, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4620,7 +4620,7 @@ Transform:
   m_GameObject: {fileID: 1805823677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.589112, z: -23}
+  m_LocalPosition: {x: 0, y: 5.064358, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4669,6 +4669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScanRecursively: 0
   SuppressInputWhileBlending: 1
+  IgnoreTimeScale: 0
   m_ControllerManager:
     Controllers:
     - Name: Look X (Pan)
@@ -4705,15 +4706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0, z: 0}
-  Lookahead:
-    Enabled: 1
-    Time: 0.1
-    Smoothing: 30
-    IgnoreY: 0
-  CameraDistance: 23
+  CameraDistance: 11
   DeadZoneDepth: 0
-  Damping: {x: 1, y: 1, z: 1}
   Composition:
     ScreenPosition: {x: 0, y: 0.3}
     DeadZone:
@@ -4724,6 +4718,13 @@ MonoBehaviour:
       Size: {x: 0.306, y: 0.415}
       Offset: {x: 0, y: -0.6}
   CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 1, y: 1, z: 1}
+  Lookahead:
+    Enabled: 1
+    Time: 0.1
+    Smoothing: 30
+    IgnoreY: 0
 --- !u!114 &1805823686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4848,20 +4849,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1024, y: 5, z: 1024}
+    m_Extent: {x: 125, y: 5, z: 125}
   shape:
     type: 0
     size:
-      x: 2048
-      y: 2048
+      x: 250
+      y: 250
     range:
       x: 4
       y: 10
   settings:
     distanceBlend: 100
-    waterMaxVisibility: 25
-    absorptionColor: {r: 0.3529412, g: 0.7176471, b: 0.77647066, a: 1}
-    scatteringColor: {r: 0, g: 0.3080849, b: 0.6377357, a: 1}
+    waterMaxVisibility: 5
+    absorptionColor: {r: 0.2, g: 0.6, b: 0.8, a: 1}
+    scatteringColor: {r: 0, g: 0.15, b: 0.2, a: 1}
     cubemapTexture: {fileID: 0}
     waveFoamProfile:
       serializedVersion: 2
@@ -5462,6 +5463,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404648595261435189, guid: 6843bcfdc1a9bbf49a823884a0abcce8,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311228971080834469, guid: 6843bcfdc1a9bbf49a823884a0abcce8,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437811407370939635, guid: 6843bcfdc1a9bbf49a823884a0abcce8,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8214195621398864091, guid: 6843bcfdc1a9bbf49a823884a0abcce8,
         type: 3}
